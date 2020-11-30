@@ -39,4 +39,4 @@ local position = vector3(-1083.1131, -245.848, 37.76)
 
 ![alt text](https://i.imgur.com/sH1dnqv.png)
 
-![alt text](https://i.imgur.com/CBPHBQ6.png)
+![alt text](https://i.imgur.com/h8L5H0I.png)
