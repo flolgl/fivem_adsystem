@@ -1,3 +1,5 @@
+local position = vector3(-1083.1131, -245.848, 37.76)
+
 Citizen.CreateThread(function()
     --AddTextEntry("press_pub", "~INPUT_CONTEXT~ pour publier une publicité")
     AddTextEntry("press_pub", "~INPUT_CONTEXT~ to publish an ad")
@@ -6,7 +8,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local ped = GetPlayerPed(-1)
         local coords  = GetEntityCoords(ped)
-        local distance = GetDistanceBetweenCoords(vector3(-1083.1131, -245.848, 37.76), coords, true)
+        local distance = GetDistanceBetweenCoords(position, coords, true)
         if distance <= 5 then
             DisplayHelpTextThisFrame("press_pub")
             if IsControlPressed(1, 38) then
@@ -18,10 +20,11 @@ Citizen.CreateThread(function()
 end)
 
 function Pub()
-    --local Titlepub = KeyboardInput("Saisir le titre - Prix de la pub: 50$ - CB seulement", "",20)
-    --local textpub = KeyboardInput("Saisir le texte - Prix de la pub: 50$ - CB seulement", "",200)
-    local Titlepub = KeyboardInput("Enter ad title - $50 the ad - Credit card only", "",20)
-    local textpub = KeyboardInput("Enter ad text - $50 the ad - Credit card only", "",200)
+    local price = 50
+    --local Titlepub = KeyboardInput("Saisir le titre - Prix de la pub: "..price.."$ - CB seulement", "",20)
+    --local textpub = KeyboardInput("Saisir le texte - Prix de la pub: "..price.."$ - CB seulement", "",200)
+    local Titlepub = KeyboardInput("Enter ad title - $"..price.." the ad - Credit card only", "",20)
+    local textpub = KeyboardInput("Enter ad text - $"..price.." the ad - Credit card only", "",200)
     if textpub ~= nil or textpub ~= "" and Titlepub ~= nil then
         TriggerServerEvent("pub:check_money", textpub, Titlepub)
     end
@@ -73,7 +76,7 @@ end
 
 Citizen.CreateThread(function()
 
-    local blip = AddBlipForCoord(vector3(-1083.1131, -245.848, 37.76))
+    local blip = AddBlipForCoord(position)
 
     SetBlipSprite (blip, 77)
     SetBlipDisplay(blip, 4)
@@ -88,7 +91,7 @@ Citizen.CreateThread(function()
     while true do 
         Citizen.Wait(100)
         playerCoords = GetEntityCoords(PlayerPedId())
-        if GetDistanceBetweenCoords(playerCoords,vector3(-1083.1131, -245.848, 37.76)) < 20 then
+        if GetDistanceBetweenCoords(playerCoords,position) < 20 then
             pedspawn()
             break
         end
