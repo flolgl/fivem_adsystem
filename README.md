@@ -10,7 +10,7 @@ You can simply modify the price of an ad. To do that, you just have to modify th
 ### Add money to a society
 You simply have to uncomment the 3 following lines in sv.lua:
 
-```
+```lua
 TriggerEvent('esx_addonaccount:getSharedAccount', 'society_weazel', function(account)
     account.addMoney(price)
 end)
@@ -21,4 +21,5 @@ Simply modify the global called position in cl.lua
 
 
 ## Pictures
+
 
