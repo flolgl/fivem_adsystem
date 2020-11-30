@@ -33,7 +33,8 @@ end
 RegisterNetEvent("pub:sendpub")
 AddEventHandler("pub:sendpub", function(text, titre)
 
-    notifadvanced("Publicité", titre, text, "CHAR_LIFEINVADER", 2)
+    --notifadvanced("Publicité", titre, text, "CHAR_LIFEINVADER", 2)
+    notifadvanced("Ad", titre, text, "CHAR_LIFEINVADER", 2)
 
 end)
 
