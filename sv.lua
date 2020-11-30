@@ -11,7 +11,8 @@ AddEventHandler("pub:check_money", function(text, title)
 
     if xPlayer.getAccount('bank').money >= price then
         xPlayer.removeAccountMoney('bank', price)
-        TriggerClientEvent('pub:notif', _source, "Paiement accepté", 25)
+        --TriggerClientEvent('pub:notif', _source, "Paiement accepté", 25)
+        TriggerClientEvent('pub:notif', _source, "You payment was accepted", 25)
         TriggerClientEvent('pub:sendpub', -1, text, title)
         --[[
         /*  * Uncomment the 3 lines under this one if you want to add money the money a society
@@ -23,7 +24,8 @@ AddEventHandler("pub:check_money", function(text, title)
         end)
         --]] 
     else
-        TriggerClientEvent('pub:notif', _source, "Paiement refusé", 208)
+        --TriggerClientEvent('pub:notif', _source, "Paiement refusé", 208)
+        TriggerClientEvent('pub:notif', _source, "You payment was declined", 208)
     end
 
 
